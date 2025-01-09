@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --job-name=test    ## Name of the job.
+#SBATCH -A class-ecoevo283 ## account to charge
+#SBATCH -p standard        ## partition/queue name
+#SBATCH --cpus-per-task=1  ## number of cores the job needs
+
+
+cd /dfs6/pub/itamburi/ee283/week1
+
+wget https://wfitch.bio.uci.edu/~tdlong/problem1.tar.gz
+tar -xvf problem1.tar.gz
+rm problem1.tar.gz
+
+head -n 10 problem1/p.txt | tail -n 1 > tenthline.txt
