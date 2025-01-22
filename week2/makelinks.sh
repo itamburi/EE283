@@ -38,7 +38,7 @@ do
    	   ff=$(basename $f)
    	   echo "Processing $ff file..."
    	   read=$(echo "$ff" | grep -o 'R[12]')
-	   ln -s $f $DestDir/${sample}_$read
+	   ln -s $f $DestDir/${sample}_${read}.fq.gz
 	done
 
 done < $File
@@ -76,7 +76,7 @@ do
           echo "Processing $ff file..."
           read=$(echo "$ff" | grep -o 'R[12]')
           echo $read
-          ln -s $f $DestDir/${sampleid}_$read
+          ln -s $f $DestDir/${sampleid}_${read}.fq.gz
 
 # final format of the link will be sampleID (from col 12 "FullSampleName" in metadata) followed by _read
        done
