@@ -8,7 +8,7 @@ dir="/dfs6/pub/itamburi/ee283"
 READ1=${dir}/datalinks/DNAseq/ADL06_1_1.fq.gz
 READ2=${dir}/datalinks/DNAseq/ADL06_1_2.fq.gz
 
-fastqc ${READ1} ${READ2} -o ${dir}/week3/fastqc1_out
+fastqc ${READ1} ${READ2} -o ${dir}/week3/prob1/fastqc1_out
 
 
 # *** Run trimmomatic and rerun fastqc
