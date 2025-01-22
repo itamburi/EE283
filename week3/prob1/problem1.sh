@@ -31,3 +31,5 @@ fastqc ${dirout}/ALD06_R1_paired.fq ${dirout}/ALD06_R2_paired.fq -o ${dir}/week3
 # Examining each .html report file produced by the first fastqc run, the per base sequence quality seems to decline at around a read position of 30-40 bp 
 
 # Examining the .html report file produced by the fastqc on the reads processed by trimmomatic, the per base sequence quality remains high (>30) across the position in read (bp)
+
+# Note: the trimmed reads files produced by trimmomatic would be contained in the trimmomatic_out folder, but I have added these to .gitignore because they exceed the github upload limit of 100mb

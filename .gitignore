@@ -1,1 +1,4 @@
-week3/prob1/trimmomatic_out/*
+week3/prob1/trimmomatic_out/ALD06_R1_paired.fq
+week3/prob1/trimmomatic_out/ALD06_R1_unpaired.fq
+week3/prob1/trimmomatic_out/ALD06_R2_paired.fq
+week3/prob1/trimmomatic_out/ALD06_R2_unpaired.fq
