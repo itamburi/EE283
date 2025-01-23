@@ -1,0 +1,37 @@
+[bwa_index] Pack FASTA... 0.92 sec
+[bwa_index] Construct BWT for the packed sequence...
+[BWTIncCreate] textLength=287452004, availableWord=32225820
+[BWTIncConstructFromPacked] 10 iterations done. 53158068 characters processed.
+[BWTIncConstructFromPacked] 20 iterations done. 98205524 characters processed.
+[BWTIncConstructFromPacked] 30 iterations done. 138239796 characters processed.
+[BWTIncConstructFromPacked] 40 iterations done. 173818340 characters processed.
+[BWTIncConstructFromPacked] 50 iterations done. 205436596 characters processed.
+[BWTIncConstructFromPacked] 60 iterations done. 233534948 characters processed.
+[BWTIncConstructFromPacked] 70 iterations done. 258504820 characters processed.
+[BWTIncConstructFromPacked] 80 iterations done. 280694052 characters processed.
+[bwa_index] 66.53 seconds elapse.
+[bwa_index] Update BWT... 0.62 sec
+[bwa_index] Pack forward-only FASTA... 0.54 sec
+[bwa_index] Construct SA from BWT and Occ... 30.58 sec
+[bwt_gen] Finished constructing BWT in 84 iterations.
+[main] Version: 0.7.8-r455
+[main] CMD: bwa index -p /dfs6/pub/itamburi/ee283/datalinks/refs/bwaidx /dfs6/pub/itamburi/ee283/datalinks/refs/dm6.fasta
+[main] Real time: 100.394 sec; CPU: 99.199 sec
+INFO	2025-01-23 12:14:36	CreateSequenceDictionary	
+
+********** NOTE: Picard's command line syntax is changing.
+**********
+********** For more information, please see:
+********** https://github.com/broadinstitute/picard/wiki/Command-Line-Syntax-Transition-For-Users-(Pre-Transition)
+**********
+********** The command line looks like this in the new syntax:
+**********
+**********    CreateSequenceDictionary -R /dfs6/pub/itamburi/ee283/datalinks/refs/dm6.fasta -O /dfs6/pub/itamburi/ee283/datalinks/refs/dm6.dict
+**********
+
+
+12:14:37.283 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/opt/apps/picard-tools/2.27.1/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+[Thu Jan 23 12:14:37 PST 2025] CreateSequenceDictionary OUTPUT=/dfs6/pub/itamburi/ee283/datalinks/refs/dm6.dict REFERENCE=/dfs6/pub/itamburi/ee283/datalinks/refs/dm6.fasta    TRUNCATE_NAMES_AT_WHITESPACE=true NUM_SEQUENCES=2147483647 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json USE_JDK_DEFLATER=false USE_JDK_INFLATER=false
+[Thu Jan 23 12:14:37 PST 2025] Executing as itamburi@hpc3-14-11 on Linux 4.18.0-553.22.1.el8_10.x86_64 amd64; OpenJDK 64-Bit Server VM 11.0.25+9-LTS; Deflater: Intel; Inflater: Intel; Provider GCS is not available; Picard version: unspecified-SNAPSHOT
+[Thu Jan 23 12:14:38 PST 2025] picard.sam.CreateSequenceDictionary done. Elapsed time: 0.02 minutes.
+Runtime.totalMemory()=340787200
