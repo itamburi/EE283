@@ -1,0 +1,52 @@
+TrimmomaticPE: Started with arguments:
+ -threads 4 /dfs6/pub/itamburi/ee283/datalinks/ATACseq/P021_A5_ED_3_R1.fq.gz /dfs6/pub/itamburi/ee283/datalinks/ATACseq/P021_A5_ED_3_R2.fq.gz /dfs6/pub/itamburi/ee283/week3/prob4/ATAC_trimmo/P021_A5_ED_3_R1_paired.fq /dfs6/pub/itamburi/ee283/week3/prob4/ATAC_trimmo/P021_A5_ED_3_R1_unpaired.fq /dfs6/pub/itamburi/ee283/week3/prob4/ATAC_trimmo/P021_A5_ED_3_R2_paired.fq /dfs6/pub/itamburi/ee283/week3/prob4/ATAC_trimmo/P021_A5_ED_3_R2_unpaired.fq ILLUMINACLIP:/opt/apps/trimmomatic/0.39/adapters/NexteraPE-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+Using PrefixPair: 'AGATGTGTATAAGAGACAG' and 'AGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTCCGAGCCCACGAGAC'
+Using Long Clipping Sequence: 'CTGTCTCTTATACACATCTGACGCTGCCGACGA'
+ILLUMINACLIP: Using 1 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 834460 Both Surviving: 681110 (81.62%) Forward Only Surviving: 145183 (17.40%) Reverse Only Surviving: 1945 (0.23%) Dropped: 6222 (0.75%)
+TrimmomaticPE: Completed successfully
+[M::main_mem] read 802838 sequences (40000052 bp)...
+[M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (4, 317357, 39, 11)
+[M::mem_pestat] skip orientation FF as there are not enough pairs
+[M::mem_pestat] analyzing insert size distribution for orientation FR...
+[M::mem_pestat] (25, 50, 75) percentile: (114, 208, 347)
+[M::mem_pestat] low and high boundaries for computing mean and std.dev: (1, 813)
+[M::mem_pestat] mean and std.dev: (245.06, 161.75)
+[M::mem_pestat] low and high boundaries for proper pairs: (1, 1046)
+[M::mem_pestat] analyzing insert size distribution for orientation RF...
+[M::mem_pestat] (25, 50, 75) percentile: (69, 222, 3414)
+[M::mem_pestat] low and high boundaries for computing mean and std.dev: (1, 10104)
+[M::mem_pestat] mean and std.dev: (1752.28, 2263.61)
+[M::mem_pestat] low and high boundaries for proper pairs: (1, 13449)
+[M::mem_pestat] analyzing insert size distribution for orientation RR...
+[M::mem_pestat] (25, 50, 75) percentile: (92, 183, 5212)
+[M::mem_pestat] low and high boundaries for computing mean and std.dev: (1, 15452)
+[M::mem_pestat] mean and std.dev: (2093.09, 2510.92)
+[M::mem_pestat] low and high boundaries for proper pairs: (1, 20572)
+[M::mem_pestat] skip orientation RF
+[M::mem_pestat] skip orientation RR
+[M::mem_process_seqs] Processed 802838 reads in 68.391 CPU sec, 17.242 real sec
+[M::main_mem] read 559382 sequences (27881381 bp)...
+[M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (9, 221598, 22, 8)
+[M::mem_pestat] skip orientation FF as there are not enough pairs
+[M::mem_pestat] analyzing insert size distribution for orientation FR...
+[M::mem_pestat] (25, 50, 75) percentile: (113, 208, 350)
+[M::mem_pestat] low and high boundaries for computing mean and std.dev: (1, 824)
+[M::mem_pestat] mean and std.dev: (246.23, 165.06)
+[M::mem_pestat] low and high boundaries for proper pairs: (1, 1061)
+[M::mem_pestat] analyzing insert size distribution for orientation RF...
+[M::mem_pestat] (25, 50, 75) percentile: (40, 83, 559)
+[M::mem_pestat] low and high boundaries for computing mean and std.dev: (1, 1597)
+[M::mem_pestat] mean and std.dev: (105.71, 129.64)
+[M::mem_pestat] low and high boundaries for proper pairs: (1, 2116)
+[M::mem_pestat] skip orientation RR as there are not enough pairs
+[M::mem_pestat] skip orientation RF
+[M::mem_process_seqs] Processed 559382 reads in 48.395 CPU sec, 12.191 real sec
+[main] Version: 0.7.8-r455
+[main] CMD: bwa mem -t 4 -M /dfs6/pub/itamburi/ee283/datalinks/refs/bwaidx/bwaidx /dfs6/pub/itamburi/ee283/week3/prob4/ATAC_trimmo/P021_A5_ED_3_R1_paired.fq /dfs6/pub/itamburi/ee283/week3/prob4/ATAC_trimmo/P021_A5_ED_3_R2_paired.fq
+[main] Real time: 30.899 sec; CPU: 117.996 sec
+[bam_sort_core] merging from 0 files and 4 in-memory blocks...
