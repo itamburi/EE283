@@ -1,0 +1,94 @@
+- STAGE: Before start
+  args: []
+  config_dir: ''
+  del_after:
+  - .bin_reads
+  - tmp/spades_0uxsf4hx
+  - configs
+  output_files: []
+  path: 'true'
+  short_name: before_start
+- STAGE: Assembling
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: as_start
+- STAGE: K21
+  args:
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/K21/configs/config.info
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/K21/configs/isolate_mode.info
+  config_dir: K21
+  del_after: []
+  output_files: []
+  path: /data/homezvol0/itamburi/.conda/envs/spades/bin/spades-core
+  short_name: k21
+- STAGE: K33
+  args:
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/K33/configs/config.info
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/K33/configs/isolate_mode.info
+  config_dir: K33
+  del_after: []
+  output_files: []
+  path: /data/homezvol0/itamburi/.conda/envs/spades/bin/spades-core
+  short_name: k33
+- STAGE: Copy files
+  args:
+  - /data/homezvol0/itamburi/.conda/envs/spades/share/spades/spades_pipeline/scripts/copy_files.py
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/K33/before_rr.fasta
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/before_rr.fasta
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/K33/assembly_graph_after_simplification.gfa
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/assembly_graph_after_simplification.gfa
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/K33/final_contigs.fasta
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/contigs.fasta
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/K33/first_pe_contigs.fasta
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/first_pe_contigs.fasta
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/K33/strain_graph.gfa
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/strain_graph.gfa
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/K33/scaffolds.fasta
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/scaffolds.fasta
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/K33/scaffolds.paths
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/scaffolds.paths
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/K33/assembly_graph_with_scaffolds.gfa
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/assembly_graph_with_scaffolds.gfa
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/K33/assembly_graph.fastg
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/assembly_graph.fastg
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/K33/final_contigs.paths
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/contigs.paths
+  config_dir: ''
+  del_after:
+  - .bin_reads
+  - tmp/spades_b7fh0jep
+  output_files: []
+  path: /data/homezvol0/itamburi/.conda/envs/deeptools/bin/python
+  short_name: copy_files
+- STAGE: Assembling
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: as_finish
+- STAGE: Breaking scaffolds
+  args:
+  - /data/homezvol0/itamburi/.conda/envs/spades/share/spades/spades_pipeline/scripts/breaking_scaffolds_script.py
+  - --result_scaffolds_filename
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/scaffolds.fasta
+  - --misc_dir
+  - /dfs6/pub/itamburi/ee283/week4/A5/assembly/misc
+  - --threshold_for_breaking_scaffolds
+  - '3'
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: /data/homezvol0/itamburi/.conda/envs/deeptools/bin/python
+  short_name: bs
+- STAGE: Terminate
+  args: []
+  config_dir: ''
+  del_after:
+  - configs
+  output_files: []
+  path: 'true'
+  short_name: terminate

@@ -1,0 +1,4 @@
+- "number": !!int "1"
+  "single reads":
+  - "/dfs6/pub/itamburi/ee283/week4/A5/A5_other.fa"
+  "type": "single"

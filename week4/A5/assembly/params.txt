@@ -1,0 +1,32 @@
+Command line: /data/homezvol0/itamburi/.conda/envs/spades/bin/spades.py	-o	/dfs6/pub/itamburi/ee283/week4/A5/assembly	-s	/dfs6/pub/itamburi/ee283/week4/A5/A5_other.fa	--isolate	
+
+System information:
+  SPAdes version: 4.0.0
+  Python version: 3.12.8
+  OS: Linux-4.18.0-553.22.1.el8_10.x86_64-x86_64-with-glibc2.28
+
+Output dir: /dfs6/pub/itamburi/ee283/week4/A5/assembly
+Mode: ONLY assembling (without read error correction)
+Debug mode is turned OFF
+
+Dataset parameters:
+  Isolate mode
+  Reads:
+    Library number: 1, library type: single
+      left reads: not specified
+      right reads: not specified
+      interlaced reads: not specified
+      single reads: ['/dfs6/pub/itamburi/ee283/week4/A5/A5_other.fa']
+      merged reads: not specified
+Assembly parameters:
+  k: automatic selection based on read length
+  Repeat resolution is enabled
+  Mismatch careful mode is turned OFF
+  MismatchCorrector will be SKIPPED
+  Coverage cutoff is turned OFF
+  Assembly graph output will use GFA v1.2 format
+Other parameters:
+  Dir for temp files: /dfs6/pub/itamburi/ee283/week4/A5/assembly/tmp
+  Threads: 16
+  Memory limit (in Gb): 188
+
