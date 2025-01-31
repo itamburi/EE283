@@ -21,5 +21,5 @@ bamCoverage -b $A4 -o ${dir}/A4/A4.bedgraph --normalizeUsing RPKM --region X:190
 bamCoverage -b $A5 -o ${dir}/A5/A5.bedgraph --normalizeUsing RPKM --region X:1903000:1905000 --binSize 10 --outFileFormat bedgraph
 
 # prob4
-bamCoverage -b $A4 -o ${dir}/A4/A4_ext.bedgraph --extendReads 150 --normalizeUsing RPKM --region X:1903000:1905000 --binSize 10 --outFileFormat bedgraph
-bamCoverage -b $A5 -o ${dir}/A5/A5_ext.bedgraph --extendReads 150 --normalizeUsing RPKM --region X:1903000:1905000 --binSize 10 --outFileFormat bedgraph
+bamCoverage -b $A4 -o ${dir}/A4/A4_ext.bedgraph --extendReads 500 --normalizeUsing RPKM --region X:1903000:1905000 --binSize 10 --outFileFormat bedgraph
+bamCoverage -b $A5 -o ${dir}/A5/A5_ext.bedgraph --extendReads 500 --normalizeUsing RPKM --region X:1903000:1905000 --binSize 10 --outFileFormat bedgraph

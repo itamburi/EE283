@@ -31,7 +31,7 @@ z2= merge(a4, a5) %>%
 gg2 = ggplot(z2,aes(start,RPKM,color=name)) +
   geom_point() +
   geom_line() +
-  labs(title="bamCoverage with --extendReads 150") +
+  labs(title="bamCoverage with --extendReads 500") +
   scale_color_manual(values=c("blue", "grey80")) +
   geom_vline(xintercept=1904042, color ="red", linetype="dashed") +
   theme_bw()

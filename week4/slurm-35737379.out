@@ -60,7 +60,7 @@ blackListFileName: None
 skipZeroOverZero: False
 bed_and_bin: False
 genomeChunkSize: None
-defaultFragmentLength: 150
+defaultFragmentLength: 500
 numberOfProcessors: 1
 verbose: False
 region: X:1903000:1905000:10
@@ -78,7 +78,7 @@ zerosToNans: False
 smoothLength: None
 save_data: False
 out_file_for_raw_data: None
-maxPairedFragmentLength: 600
+maxPairedFragmentLength: 2000
 normalization: RPKM
 bamFilesList: ['/dfs6/pub/itamburi/ee283/week3/prob4/DNAbam/ADL09_1.sort.bam']
 binLength: 10
@@ -87,7 +87,7 @@ blackListFileName: None
 skipZeroOverZero: False
 bed_and_bin: False
 genomeChunkSize: None
-defaultFragmentLength: 150
+defaultFragmentLength: 500
 numberOfProcessors: 1
 verbose: False
 region: X:1903000:1905000:10
@@ -105,4 +105,4 @@ zerosToNans: False
 smoothLength: None
 save_data: False
 out_file_for_raw_data: None
-maxPairedFragmentLength: 600
+maxPairedFragmentLength: 2000
