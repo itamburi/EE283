@@ -1,0 +1,5 @@
+Step	SNP_Count	Mean_DP	Mean_QUAL	TiTv_Ratio
+Initial VCF	1877595	170.024	3144.82	0.99
+After Filter 1	162589	164.325	2575.13	0.96
+After Filter 2	162589	164.325	2575.13	0.96
+After Filter 3	71513	157.899	2462.05	1.00
