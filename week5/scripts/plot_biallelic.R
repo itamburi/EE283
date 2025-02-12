@@ -26,9 +26,10 @@ pheatmap(
 ggsave("genotype_heatmap.png", plot = grid::grid.grab(), width = 8, height = 12)
 
 
-# Prob #3 - only strains where two are 0/0 and other two are 1/1; snp at frequency of 50%
+# Prob #4 - only strains where two are 0/0 and other two are 1/1; snp at frequency of 50%
 library(tidyverse)
 
+# this is trivial to perform in R. But It can also be done with awk; see scripts/08_awkhomozyg.sh
 filt = gen %>%
     filter(!if_any(everything(), ~ . == 1)) %>%
     mutate(sum = geneotype1+geneotype2+geneotype3+geneotype4) %>%
