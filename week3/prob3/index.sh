@@ -3,7 +3,8 @@
 #SBATCH --job-name=index.dm6    # Job name                  
 #SBATCH --cpus-per-task 8
 #SBATCH --mem=16gb
-#SBATCH --output=/dfs6/pub/itamburi/ee283/week3/prob3/prob3-%J.log   # Output and error log 
+#SBATCH --output=/dfs6/pub/itamburi/ee283/week3/prob3/prob3-%J.out   # Output and error log
+#SBATCH --error=/dfs6/pub/itamburi/ee283/week3/prob3/prob3-%J.err   # Output and error log 
 
 
 module load picard-tools/2.27.1

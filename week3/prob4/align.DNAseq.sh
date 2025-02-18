@@ -4,7 +4,8 @@
 #SBATCH --cpus-per-task 8
 #SBATCH --array=1-12  
 #SBATCH --mem-per-cpu=8G
-#SBATCH --output=/dfs6/pub/itamburi/ee283/week3/prob4/DNAlog/%J.log   # Output and error log 
+#SBATCH --output=/dfs6/pub/itamburi/ee283/week3/prob4/DNAlog/%J.out   # Output and error log 
+#SBATCH --error=/dfs6/pub/itamburi/ee283/week3/prob4/DNAlog/%J.err   # Output and error log 
 
 module load bwa/0.7.8
 module load samtools/1.15.1  

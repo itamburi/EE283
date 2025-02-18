@@ -55,7 +55,8 @@ awk 'NR==FNR {if ($1 == "X") chr_size[$1]=$2; next} $1 == "X" && $3 <= chr_size[
 
 #awk '{print "chr" $1 "\t" $2}' ${ref}/dm6.chrom.sizes.ucsc > ${ref}/dm6_with_chr.chrom.sizes.ucsc
 #awk '{if ($1 ~ /^[0-9]+$/) $1 = "chr" $1; else if ($1 !~ /^chr/) $1 = "chr" $1; print $0}' ${out}/A4ED_treat_pileup.safeends.bdg > ${out}/A4ED_treat_pileup_with_chr.bdg
-
+# this one tab delimits: awk 'BEGIN {OFS="\t"} {if ($1 ~ /^[0-9]+$/) $1 = "chr" $1; else if ($1 !~ /^chr/) $1 = "chr" $1; print $0}' ${out}/A4ED_treat_pileup.safeends.bdg > ${out}/A4ED_treat_pileup_with_chr.bdg
+# .. but it doesnt seem to have any change on the resulting .bw below
 
 bedGraphToBigWig ${out}/A4ED_treat_pileup_with_chr.bdg ${ref}/dm6_with_chr.chrom.sizes.ucsc ${out}/A4ED_broad_peaks_with_chr.bw
 #bedGraphToBigWig ${out}/A4ED_treat_pileup.safeends.bdg ${ref}/dm6.chrom.sizes.ucsc ${out}/A4ED_broad_peaks.bw
