@@ -1,0 +1,204 @@
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.3
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 20 BAM files                                     ||
+||                                                                            ||
+||                           21148B0.sort.bam                                 ||
+||                           21286B0.sort.bam                                 ||
+||                           22162B0.sort.bam                                 ||
+||                           21297B0.sort.bam                                 ||
+||                           21029B0.sort.bam                                 ||
+||                           22052B0.sort.bam                                 ||
+||                           22031B0.sort.bam                                 ||
+||                           21293B0.sort.bam                                 ||
+||                           22378B0.sort.bam                                 ||
+||                           22390B0.sort.bam                                 ||
+||                           21148E0.sort.bam                                 ||
+||                           21286E0.sort.bam                                 ||
+||                           22162E0.sort.bam                                 ||
+||                           21297E0.sort.bam                                 ||
+||                           21029E0.sort.bam                                 ||
+||                           22052E0.sort.bam                                 ||
+||                           22031E0.sort.bam                                 ||
+||                           21293E0.sort.bam                                 ||
+||                           22378E0.sort.bam                                 ||
+||                           22390E0.sort.bam                                 ||
+||                                                                            ||
+||             Output file : fly_counts.txt                                   ||
+||                 Summary : fly_counts.txt.summary                           ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : no                                               ||
+||              Annotation : dm6.gtf (GTF)                                    ||
+||      Dir for temp files : /dfs6/pub/itamburi/ee283/week7                   ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file dm6.gtf ...                                           ||
+||    Features : 187124                                                       ||
+||    Meta-features : 17490                                                   ||
+||    Chromosomes/contigs : 57                                                ||
+||                                                                            ||
+|| Process BAM file 21148B0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 12940502                                             ||
+||    Successfully assigned alignments : 568784 (4.4%)                        ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 21286B0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 17474518                                             ||
+||    Successfully assigned alignments : 670268 (3.8%)                        ||
+||    Running time : 0.05 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 22162B0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 40511983                                             ||
+||    Successfully assigned alignments : 1615822 (4.0%)                       ||
+||    Running time : 0.10 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 21297B0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 18903121                                             ||
+||    Successfully assigned alignments : 750593 (4.0%)                        ||
+||    Running time : 0.06 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 21029B0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 14464255                                             ||
+||    Successfully assigned alignments : 602631 (4.2%)                        ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 22052B0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 12107958                                             ||
+||    Successfully assigned alignments : 475726 (3.9%)                        ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 22031B0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 14228740                                             ||
+||    Successfully assigned alignments : 578667 (4.1%)                        ||
+||    Running time : 0.05 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 21293B0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 45097367                                             ||
+||    Successfully assigned alignments : 1980872 (4.4%)                       ||
+||    Running time : 0.11 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 22378B0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 19025090                                             ||
+||    Successfully assigned alignments : 750131 (3.9%)                        ||
+||    Running time : 0.06 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 22390B0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 15964264                                             ||
+||    Successfully assigned alignments : 653511 (4.1%)                        ||
+||    Running time : 0.05 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 21148E0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 19330117                                             ||
+||    Successfully assigned alignments : 948421 (4.9%)                        ||
+||    Running time : 0.05 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 21286E0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 20245502                                             ||
+||    Successfully assigned alignments : 567560 (2.8%)                        ||
+||    Running time : 0.06 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 22162E0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 19393444                                             ||
+||    Successfully assigned alignments : 803391 (4.1%)                        ||
+||    Running time : 0.05 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 21297E0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 14638237                                             ||
+||    Successfully assigned alignments : 530812 (3.6%)                        ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 21029E0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 15431786                                             ||
+||    Successfully assigned alignments : 490395 (3.2%)                        ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 22052E0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 16018372                                             ||
+||    Successfully assigned alignments : 538862 (3.4%)                        ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 22031E0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 18269347                                             ||
+||    Successfully assigned alignments : 640377 (3.5%)                        ||
+||    Running time : 0.05 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 21293E0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 19388167                                             ||
+||    Successfully assigned alignments : 735292 (3.8%)                        ||
+||    Running time : 0.06 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 22378E0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 20692864                                             ||
+||    Successfully assigned alignments : 676741 (3.3%)                        ||
+||    Running time : 0.06 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 22390E0.sort.bam...                                       ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 24522864                                             ||
+||    Successfully assigned alignments : 895127 (3.7%)                        ||
+||    Running time : 0.07 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/dfs6/pub/itamburi/ee28  ||
+|| 3/week7/fly_counts.txt.summary"                                            ||
+||                                                                            ||
+\\============================================================================//
+

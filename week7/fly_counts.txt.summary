@@ -1,0 +1,15 @@
+Status	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/21148B0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/21286B0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/22162B0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/21297B0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/21029B0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/22052B0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/22031B0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/21293B0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/22378B0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/22390B0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/21148E0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/21286E0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/22162E0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/21297E0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/21029E0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/22052E0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/22031E0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/21293E0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/22378E0.sort.bam	/dfs6/pub/itamburi/ee283/week3/prob5/RNAbam/22390E0.sort.bam
+Assigned	568784	670268	1615822	750593	602631	475726	578667	1980872	750131	653511	948421	567560	803391	530812	490395	538862	640377	735292	676741	895127
+Unassigned_Unmapped	159664	224738	476154	231611	182280	148198	174111	546349	241851	189991	241324	241239	242389	152391	167012	164620	192784	223117	235896	273262
+Unassigned_Read_Type	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Singleton	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_MappingQuality	11997094	16263825	37671686	17551248	13406682	11271509	13204241	41693573	17701282	14817901	17680894	19014479	17909669	13676947	14454079	14997997	17079617	18038565	19332962	22840197
+Unassigned_Chimera	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_FragmentLength	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Duplicate	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_MultiMapping	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Secondary	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_NonSplit	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_NoFeatures	92983	125639	293832	170695	131538	96642	136314	375605	142028	125558	266568	229596	244762	164975	175083	172177	211432	216985	208301	303877
+Unassigned_Overlapping_Length	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Ambiguity	121977	190048	454489	198974	141124	115883	135407	500968	189798	177303	192910	192628	193233	113112	145217	144716	145137	174208	238964	210401
