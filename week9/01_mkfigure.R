@@ -4,8 +4,12 @@ library(cowplot)
 library(qqman)
 library(nycflights13)
 library(cowplot)
+library(DESeq2)
+library(gplots)
+library(RColorBrewer)
+library(genefilter)
 
-
+#
 ## Problem 1 - pretty figure for flights dataset ####
 P1 <- ggplot(flights, aes(x=distance,y=arr_delay)) +
   geom_point() + 
@@ -42,6 +46,76 @@ lay <- rbind(c(1,1,2,2),
 tiff("prob1_figure.tiff", width = 7, height = 6, units = "in", res=600)
 grid.arrange(P1,P2,P3,P4, layout_matrix = lay)
 graphics.off()
+
+
+
+
+## Problem 2 - 4-6 Pane figure from some previous results ####
+
+load("../week7/deseq2_objs.Rdata")
+
+# check dispersions and variance
+pp1 = function(){ plotMA( res, ylim = c(-1, 1) ) }
+pp2 = function(){ plotDispEsts( dds ) }
+
+
+# Heatmap of sample distributions
+rld = rlog( dds )
+mydata = assay(rld)
+sampleDists = dist( t( assay(rld) ) )
+sampleDistMatrix = as.matrix( sampleDists )
+rownames(sampleDistMatrix) = rld$TissueCode
+colnames(sampleDistMatrix) = NULL
+colours = colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
+pp3 = function(){ heatmap.2( sampleDistMatrix, trace="none", col=colours) }
+
+
+# heatmap of top discriminating genes
+topVarGenes <- head( order( rowVars( assay(rld) ), decreasing=TRUE ), 35 )
+pp4 = function(){
+  heatmap.2( assay(rld)[ topVarGenes, ], scale="row", trace="none", dendrogram="column", col = colorRampPalette( rev(brewer.pal(9, "RdBu")) )(255))
+}
+
+
+# Volcano plot
+lfc = data.frame(res) %>%
+  rownames_to_column(var = "gene.id") %>%
+  filter(!is.na(log2FoldChange)) %>%
+  mutate(sig.label = ifelse(padj <=0.001, gene.id, NA))
+
+pp5 = ggplot(lfc, aes(log2FoldChange, -log10(padj))) +
+  geom_hline(yintercept = -log10(0.01), linetype = "dashed", color = "red") +
+  geom_vline(xintercept = 1, linetype = "dotted", color = "black", alpha = .5) +
+  geom_vline(xintercept = -1, linetype = "dotted", color = "black", alpha = .5) +
+  geom_point(size = .2, alpha = .4, color = "grey80") +
+  geom_point(size = .2,
+             data = subset(lfc, is.na(sig.label) == FALSE),
+             color = "black"
+  ) +
+  labs( x="Log2FC(Brain/Embryo)", title = "Fly Brain vs Embryo Deseq2") +
+  
+  ggrepel::geom_text_repel( aes( label = sig.label ),
+                            vjust = 1.0,
+                            box.padding = 0.5,
+                            size = 2.0,
+                            max.overlaps = 50, alpha = 0.7 ) +
+  theme_bw()
+
+# plot
+title = ggdraw() + draw_label("Dispersion and Variance in DEx Genes \n (Brain over Embryo)", fontface='bold')
+z1 = plot_grid(pp1, pp2, labels=c("A","B"))
+AB = plot_grid( title, z1, ncol=1, rel_heights = c(.1, 1))
+
+title = ggdraw() + draw_label("Sample Clustering and Top Discriminating Genes", fontface='bold')
+z2 = plot_grid(pp3, pp4, labels=c("C","D"))
+CD = plot_grid( title, z2, ncol=1, rel_heights = c(.1, 1))
+
+# expand the plot window a lot
+row1 = plot_grid(AB, CD)
+row2 = plot_grid(NULL, pp5, NULL, nrow = 1, labels =c("", "E", ""), rel_widths = c(.5,1,.5))
+figure=plot_grid(row1, row2, ncol=1, rel_heights = c(1,1))
+ggsave(plot = figure, "prob2_deseqresults.pdf",h=10, w=20)
+
 
 
 
