@@ -148,24 +148,35 @@ merge = read.csv("../week8/interaction of treatment to founder at each genome po
   mutate(
     SNP = paste0(chr,"_",pos),
     CHR = chr,
-    BP = pos
+    BP = pos,
+    label = ifelse( abs( log10(mod1.signif)-log10(mod2.signif)/mod1.signif)*100 > 50 , SNP,NA)
   )
 
 
-ggplot(merge, aes(pos)) +
-  geom_point(aes(y=mod1.signif)) +
-  geom_point(aes(y=mod2.signif))
-
-ggplot(merge, aes( pos , ratio) ) + geom_point()
+SNP = ggplot(merge, aes( mod1.signif , mod2.signif) ) +
   labs(
     title = "Comparison of SNP Model Results",
-    subtitle = "SNPs with > 50% difference in -log10pval are labeled",
+    subtitle = "SNPs with > 50% difference in -log10pval are labeled red",
     x= "-log10 of pvalues from Model 1 ",   y= "-log10 of pvalues from Model 2 "
   ) +
+  geom_smooth(method = "lm", se = FALSE) +
   geom_point(size = .2, alpha = .4, color = "black") +
-  geom_point(size = 1,
+  geom_point(size = .2,
              data = subset(merge, is.na(label) == FALSE),
              color = "red"
   ) +
+  ggrepel::geom_text_repel( aes( label = label ),
+                            vjust = 1.0,
+                            box.padding = 0.5,
+                            size = 2.0,
+                            max.overlaps = 100, alpha = 0.7 ) +
   theme_bw()
+
+
+
+MP = plot_grid(gg1, gg2, ncol =1)
+plot_grid(MP, SNP, nrow=1, rel_widths = c(1.7, 1))
+ggsave("prob5_finalfigure.pdf", h=6, w=12)
+
+
 
