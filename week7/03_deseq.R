@@ -28,6 +28,8 @@ dds <- DESeq(dds)
 res <- results( dds, contrast = c("TissueCode","B","E") )
 summary(res)
 
+save(dds, res, sampleInfo, countdata, file="deseq2_objs.Rdata")
+
 # check dispersions and variance
 plotMA( res, ylim = c(-1, 1) )
 plotDispEsts( dds )

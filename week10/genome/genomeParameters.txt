@@ -1,0 +1,19 @@
+### STAR   --runMode genomeGenerate      --runThreadN 5   --genomeDir /dfs6/pub/itamburi/star/genome2   --genomeFastaFiles /dfs6/pub/itamburi/refs/susscrofa_ncbi/GCF_000003025.6/GCF_000003025.6_Sscrofa11.1_genomic.fna      --sjdbGTFfile /dfs6/pub/itamburi/refs/susscrofa_ncbi/GCF_000003025.6/genomic.gff
+### GstrandBit 32
+versionGenome	2.7.4a
+genomeType	Full
+genomeFastaFiles	/dfs6/pub/itamburi/refs/susscrofa_ncbi/GCF_000003025.6/GCF_000003025.6_Sscrofa11.1_genomic.fna 
+genomeSAindexNbases	14
+genomeChrBinNbits	18
+genomeSAsparseD	1
+genomeTransformType	None
+genomeTransformVCF	-
+sjdbOverhang	100
+sjdbFileChrStartEnd	- 
+sjdbGTFfile	/dfs6/pub/itamburi/refs/susscrofa_ncbi/GCF_000003025.6/genomic.gff
+sjdbGTFchrPrefix	-
+sjdbGTFfeatureExon	exon
+sjdbGTFtagExonParentTranscript	transcript_id
+sjdbGTFtagExonParentGene	gene_id
+sjdbInsertSave	Basic
+genomeFileSizes	2670125336 20798351759

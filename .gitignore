@@ -121,3 +121,13 @@ week5/vcf/ADL14.g.vcf.gz
 week5/vcf/ADL06.g.vcf.gz
 week5/vcf/allsample.g.vcf.gz
 week5/vcf/all_variants.vcf.gz
+week10/genome/Genome
+week10/genome/SAindex
+week10/genome/SA
+week10/genome.ncbi/GCF_000003025.6_Sscrofa11.1_genomic.fna
+week10/genome.ncbi/genomic.gff
+week10/genome.ncbi/genomic.gtf
+week10/genome.ncbi/cds_from_genomic.fna
+week10/genome.ncbi/rna.fna
+genome2/Genome
+genome2/SAindex
