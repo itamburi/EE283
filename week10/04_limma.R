@@ -2,6 +2,8 @@ here::i_am("04_limma.R")
 library(tidyverse)
 library(here)
 library(edgeR)
+library(enrichR)
+library(cowplot)
 
 # *** Batch 3 is the most recent RNA-seq from LDLR-/- animals fed a western diet for 3 or 5 months. These are the reads we aligned in this project
 # *** Batch 2 was produced previously on Normal genetic animals fed a regular chow diet or a western-diet
@@ -9,6 +11,7 @@ library(edgeR)
 # *** For this analysis we will compare heart tissue gene expression between the 4 cohorts using Limma
 #
 #### 1.0 - Assemble counts from batch 3 pipeline into a matrix ####
+
 # list files and merge 
 cfiles = list.files(here("counts"))
 counts_list = list()
@@ -41,6 +44,7 @@ expr2 = expr %>%
   pivot_wider(names_from = internal_id, values_from = value) %>%
   column_to_rownames(var = "gene.id")
 
+#write.csv(expr2, here("data/batch 3 counts matrix.csv"), row.names = TRUE)
 write.csv(expr2, here("data/batch 3 counts matrix heart only.csv"), row.names = TRUE)
 
 
@@ -55,7 +59,7 @@ x_b2 = read.csv(here("data/batch 2 counts matrix from old pipeline.csv"), row.na
   select( matches("Heart"))
 
 # batch 3 raw matrix, heart only
-x_b3 = read.csv(here("data/batch 3 counts matrix heart only.csv"), row.names = 1, fileEncoding = "UTF-8-BOM")
+x_b3 = read.csv(here("data/batch 3 counts matrix.csv"), row.names = 1, fileEncoding = "UTF-8-BOM")
 
 names(x_b2) = paste0("b2_", names(x_b2))
 names(x_b3) = paste0("b3_", names(x_b3))
@@ -66,9 +70,10 @@ names(x_b3) = paste0("b3_", names(x_b3))
 # https://ucdavis-bioinformatics-training.github.io/2018-September-Bioinformatics-Prerequisites/friday/limma_biomart_vignettes.html
 
 keep = intersect(rownames(x_b2), rownames(x_b3))
-expr_h = cbind( x_b2[keep,] , x_b3[keep,] ) 
+expr_h = cbind( x_b2[keep,] , x_b3[keep,] ) %>%
+  select(matches("_Heart"))
 
-#### 2.1 - Set up metadata and design matrix for limma ####
+#### 4.0 - Set up metadata and design matrix for limma ####
 
 metadata = data.frame(sample = names(expr_h) ) %>%
   separate(sample, into=c("batch","animal","tissue"), sep="_", remove = FALSE) %>%
@@ -90,7 +95,7 @@ design <- model.matrix(~cohort+batch, data=metadata)
 dge = DGEList(counts=expr_h)
 
 #remove rows that consistently have zero or very low counts
-keep = filterByExpr(dge, design) # note default min count arguments
+keep = filterByExpr(dge, design, min.count = 20, min.total.count = 30) # note default min count arguments
 dge = dge[keep,,keep.lib.sizes=FALSE]
 
 filtnames = rownames(dge$counts)
@@ -118,36 +123,148 @@ contrasts <- makeContrasts(
 
 fit2 <- contrasts.fit(fit, contrasts)
 fit2 <- eBayes(fit2)
-z = topTable(fit2, number=Inf) %>% rownames_to_column(var="gene.id")
+top = topTable(fit2, number=Inf) %>% rownames_to_column(var="gene.id")
 
-z2 = z %>% filter(gene.id %in% c("ISG20","ISG15","PPARA", "CPT2","CRAT", "PPARGC1A", "UCP3","NDUFS1"))
+gn_up = top %>%
+  filter(
+    hfhs_vs_nc > 0 & hfhs_vs_nc < cohort3mo_vs_nc & cohort3mo_vs_nc < cohort5mo_vs_nc,
+    #hfhs_vs_nc > 0 & hfhs_vs_nc < cohort3mo_vs_nc & hfhs_vs_nc < cohort5mo_vs_nc,
+    #cohort3mo_vs_nc > 0 & cohort3mo_vs_nc < cohort5mo_vs_nc,
+    adj.P.Val <= 0.05
+    )
+gn_dn = top %>%
+  filter(
+    hfhs_vs_nc < 0 & hfhs_vs_nc > cohort3mo_vs_nc & cohort3mo_vs_nc > cohort5mo_vs_nc,
+    adj.P.Val <= 0.05
+  )
 
 
-
-
-# enrichr
-library(enrichR)
+#### 5.0 - pathway enrichment analysis ####
 dbs1 = c("MSigDB_Hallmark_2020")
 
-gn = z %>% filter(hfhs_vs_nc < 0, adj.P.Val <= 0.05)
-enriched1 = enrichr(gn$gene.id, dbs1)
+# HFHS vs control
+hfhs_up = top %>% filter(hfhs_vs_nc > 0, adj.P.Val <= 0.05)
+enriched1 = enrichr(hfhs_up$gene.id, dbs1)
 df1 = as.data.frame(enriched1) %>%
   filter( MSigDB_Hallmark_2020.Adjusted.P.value <= 0.05 )
-plotEnrich(enriched1[[1]], showTerms = 30, numChar = 100, y = "Count", orderBy = "P.value", title="Pwys among downregulated genes relative to NC")
+ee1 = plotEnrich(enriched1[[1]], showTerms = 10, numChar = 100, y = "Count", orderBy = "P.value", title="Pwys up in HFHS vs NC")
 
-gn = z %>% filter(hfhs_vs_nc > 0, adj.P.Val <= 0.05)
-enriched2 = enrichr(gn$gene.id, dbs1)
-df2 = as.data.frame(enriched2) %>%
+hfhs_dn = top %>% filter(hfhs_vs_nc < 0, adj.P.Val <= 0.05)
+enriched1 = enrichr(hfhs_dn$gene.id, dbs1)
+df1 = as.data.frame(enriched1) %>%
   filter( MSigDB_Hallmark_2020.Adjusted.P.value <= 0.05 )
-plotEnrich(enriched2[[1]], showTerms = 30, numChar = 100, y = "Count", orderBy = "P.value", title="Pwys among upregulated genes relative to NC")
+ee2 = plotEnrich(enriched1[[1]], showTerms = 10, numChar = 100, y = "Count", orderBy = "P.value", title="Pwys down in HFHS vs NC")
+
+## LDLR-3mo vs control
+ldl3mo_up = top %>% filter(cohort3mo_vs_nc > 0, adj.P.Val <= 0.05)
+enriched1 = enrichr(ldl3mo_up$gene.id, dbs1)
+df1 = as.data.frame(enriched1) %>%
+  filter( MSigDB_Hallmark_2020.Adjusted.P.value <= 0.05 )
+ee3 = plotEnrich(enriched1[[1]], showTerms = 10, numChar = 100, y = "Count", orderBy = "P.value", title="Pwys up in 3mo-LDLR-/- vs NC")
+
+ldl3mo_dn = top %>% filter(cohort3mo_vs_nc < 0, adj.P.Val <= 0.05)
+enriched1 = enrichr(ldl3mo_dn$gene.id, dbs1)
+df1 = as.data.frame(enriched1) %>%
+  filter( MSigDB_Hallmark_2020.Adjusted.P.value <= 0.05 )
+ee4 = plotEnrich(enriched1[[1]], showTerms = 10, numChar = 100, y = "Count", orderBy = "P.value", title="Pwys down in 3mo-LDLR-/- vs NC")
+
+
+## LDLR-5mo vs control
+ldl5mo_up = top %>% filter(cohort5mo_vs_nc > 0, adj.P.Val <= 0.05)
+enriched1 = enrichr(ldl3mo_up$gene.id, dbs1)
+df1 = as.data.frame(enriched1) %>%
+  filter( MSigDB_Hallmark_2020.Adjusted.P.value <= 0.05 )
+ee5 = plotEnrich(enriched1[[1]], showTerms = 10, numChar = 100, y = "Count", orderBy = "P.value", title="Pwys up in 5mo-LDLR-/- vs NC")
+
+ldl5mo_dn = top %>% filter(cohort5mo_vs_nc < 0, adj.P.Val <= 0.05)
+enriched1 = enrichr(ldl3mo_dn$gene.id, dbs1)
+df1 = as.data.frame(enriched1) %>%
+  filter( MSigDB_Hallmark_2020.Adjusted.P.value <= 0.05 )
+ee6 = plotEnrich(enriched1[[1]], showTerms = 10, numChar = 100, y = "Count", orderBy = "P.value", title="Pwys down in 5mo-LDLR-/- vs NC")
 
 
 
 
+#### 6.0 - Volcano plots ####
+
+lfc1 = top %>%
+  select("gene.id", "adj.P.Val", "hfhs_vs_nc") %>%
+  rename(lfc = "hfhs_vs_nc") %>%
+  mutate(sig.label = ifelse(adj.P.Val <= 0.001 & abs(lfc) >1.5, gene.id, NA))
+
+vol1 = ggplot(lfc1, aes(lfc, -log10(adj.P.Val))) +
+  geom_hline(yintercept = -log10(0.001), linetype = "dashed", color = "red") +
+  geom_vline(xintercept = 1, linetype = "dotted", color = "black", alpha = .5) +
+  geom_vline(xintercept = -1, linetype = "dotted", color = "black", alpha = .5) +
+  geom_point(size = .2, alpha = .4, color = "grey80") +
+  geom_point(size = .2,
+             data = subset(lfc1, is.na(sig.label) == FALSE),
+             color = "black"
+  ) +
+  labs( x="Log2FC(HFHS/NC)", title = "HFHS vs NC DEx in Heart") +
+  
+  ggrepel::geom_text_repel( aes( label = sig.label ),
+                            vjust = 1.0,
+                            box.padding = 0.5,
+                            size = 2.0,
+                            max.overlaps = 50, alpha = 0.7 ) +
+  theme_bw()
 
 
 
+lfc2 = top %>%
+  select("gene.id", "adj.P.Val", "cohort3mo_vs_nc") %>%
+  rename(lfc = "cohort3mo_vs_nc") %>%
+  mutate(sig.label = ifelse(adj.P.Val <= 0.001 & abs(lfc) >1.5, gene.id, NA))
+
+vol2 = ggplot(lfc2, aes(lfc, -log10(adj.P.Val))) +
+  geom_hline(yintercept = -log10(0.001), linetype = "dashed", color = "red") +
+  geom_vline(xintercept = 1, linetype = "dotted", color = "black", alpha = .5) +
+  geom_vline(xintercept = -1, linetype = "dotted", color = "black", alpha = .5) +
+  geom_point(size = .2, alpha = .4, color = "grey80") +
+  geom_point(size = .2,
+             data = subset(lfc2, is.na(sig.label) == FALSE),
+             color = "black"
+  ) +
+  labs( x="Log2FC(3mo LDLR-KO/NC)", title = "3mo LDLR-KO vs NC DEx in Heart") +
+  
+  ggrepel::geom_text_repel( aes( label = sig.label ),
+                            vjust = 1.0,
+                            box.padding = 0.5,
+                            size = 2.0,
+                            max.overlaps = 50, alpha = 0.7 ) +
+  theme_bw()
 
 
+lfc3 = top %>%
+  select("gene.id", "adj.P.Val", "cohort5mo_vs_nc") %>%
+  rename(lfc = "cohort5mo_vs_nc") %>%
+  mutate(sig.label = ifelse(adj.P.Val <= 0.001 & abs(lfc) >1.5, gene.id, NA))
 
+vol3 = ggplot(lfc3, aes(lfc, -log10(adj.P.Val))) +
+  geom_hline(yintercept = -log10(0.001), linetype = "dashed", color = "red") +
+  geom_vline(xintercept = 1, linetype = "dotted", color = "black", alpha = .5) +
+  geom_vline(xintercept = -1, linetype = "dotted", color = "black", alpha = .5) +
+  geom_point(size = .2, alpha = .4, color = "grey80") +
+  geom_point(size = .2,
+             data = subset(lfc2, is.na(sig.label) == FALSE),
+             color = "black"
+  ) +
+  labs( x="Log2FC(5mo LDLR-KO/NC)", title = "5mo LDLR-KO vs NC DEx in Heart") +
+  
+  ggrepel::geom_text_repel( aes( label = sig.label ),
+                            vjust = 1.0,
+                            box.padding = 0.5,
+                            size = 2.0,
+                            max.overlaps = 50, alpha = 0.7 ) +
+  theme_bw()
+
+
+#### 7.0 - Make the figure ####
+a = plot_grid(ee2, vol1, ee1, rel_widths = c(1,1.5,1), nrow = 1)
+b = plot_grid(ee4, vol2, ee3, rel_widths = c(1,1.5,1), nrow = 1)
+c = plot_grid(ee6, vol3, ee5, rel_widths = c(1,1.5,1), nrow = 1)
+
+f = plot_grid(a,b,c, ncol=1, labels = c("A","B","C"))
+ggsave(plot=f, "Differentially expresse pathways across cohorts.pdf",h=12,w=20)
 
