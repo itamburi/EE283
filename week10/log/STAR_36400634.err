@@ -1,0 +1,257 @@
+[bam_sort_core] merging from 20 files and 1 in-memory blocks...
+10:51:43.863 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/opt/apps/picard-tools/2.27.1/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+[Tue Mar 11 10:51:43 PDT 2025] MarkDuplicates --SORTING_COLLECTION_SIZE_RATIO 0.8 --INPUT /tmp/itamburi/36400634/n84_sorted.bam --OUTPUT /tmp/itamburi/36400634/n84_dd.bam --METRICS_FILE /tmp/itamburi/36400634/n84_mrkdp_met.txt --REMOVE_DUPLICATES true --ASSUME_SORTED true --VALIDATION_STRINGENCY SILENT --COMPRESSION_LEVEL 0 --MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP 50000 --MAX_FILE_HANDLES_FOR_READ_ENDS_MAP 8000 --TAG_DUPLICATE_SET_MEMBERS false --REMOVE_SEQUENCING_DUPLICATES false --TAGGING_POLICY DontTag --CLEAR_DT true --DUPLEX_UMI false --ADD_PG_TAG_TO_READS true --DUPLICATE_SCORING_STRATEGY SUM_OF_BASE_QUALITIES --PROGRAM_RECORD_ID MarkDuplicates --PROGRAM_GROUP_NAME MarkDuplicates --READ_NAME_REGEX <optimized capture of last three ':' separated fields as numeric values> --OPTICAL_DUPLICATE_PIXEL_DISTANCE 100 --MAX_OPTICAL_DUPLICATE_SET_SIZE 300000 --VERBOSITY INFO --QUIET false --MAX_RECORDS_IN_RAM 500000 --CREATE_INDEX false --CREATE_MD5_FILE false --GA4GH_CLIENT_SECRETS client_secrets.json --help false --version false --showHidden false --USE_JDK_DEFLATER false --USE_JDK_INFLATER false
+[Tue Mar 11 10:51:43 PDT 2025] Executing as itamburi@hpc3-23-05 on Linux 4.18.0-553.22.1.el8_10.x86_64 amd64; OpenJDK 64-Bit Server VM 11.0.25+9-LTS; Deflater: Intel; Inflater: Intel; Provider GCS is not available; Picard version: Version:unspecified-SNAPSHOT
+INFO	2025-03-11 10:51:43	MarkDuplicates	Start of doWork freeMemory: 202981816; totalMemory: 209715200; maxMemory: 32178700288
+INFO	2025-03-11 10:51:43	MarkDuplicates	Reading input file and constructing read end information.
+INFO	2025-03-11 10:51:43	MarkDuplicates	Will retain up to 373086380 data points before spilling to disk.
+INFO	2025-03-11 10:51:46	MarkDuplicates	Read     1,000,000 records.  Elapsed time: 00:00:01s.  Time for last 1,000,000:    1s.  Last read position: NC_010443.5:163,062,053
+INFO	2025-03-11 10:51:46	MarkDuplicates	Tracking 104 as yet unmatched pairs. 104 records in RAM.
+INFO	2025-03-11 10:51:47	MarkDuplicates	Read     2,000,000 records.  Elapsed time: 00:00:03s.  Time for last 1,000,000:    1s.  Last read position: NC_010444.4:4,958,787
+INFO	2025-03-11 10:51:47	MarkDuplicates	Tracking 718 as yet unmatched pairs. 718 records in RAM.
+INFO	2025-03-11 10:51:49	MarkDuplicates	Read     3,000,000 records.  Elapsed time: 00:00:05s.  Time for last 1,000,000:    1s.  Last read position: NC_010444.4:27,990,636
+INFO	2025-03-11 10:51:49	MarkDuplicates	Tracking 2 as yet unmatched pairs. 2 records in RAM.
+INFO	2025-03-11 10:51:50	MarkDuplicates	Read     4,000,000 records.  Elapsed time: 00:00:06s.  Time for last 1,000,000:    1s.  Last read position: NC_010444.4:94,345,485
+INFO	2025-03-11 10:51:50	MarkDuplicates	Tracking 1089 as yet unmatched pairs. 1089 records in RAM.
+INFO	2025-03-11 10:51:52	MarkDuplicates	Read     5,000,000 records.  Elapsed time: 00:00:08s.  Time for last 1,000,000:    1s.  Last read position: NC_010445.4:37,884,283
+INFO	2025-03-11 10:51:52	MarkDuplicates	Tracking 62 as yet unmatched pairs. 62 records in RAM.
+INFO	2025-03-11 10:51:54	MarkDuplicates	Read     6,000,000 records.  Elapsed time: 00:00:09s.  Time for last 1,000,000:    1s.  Last read position: NC_010445.4:131,262,740
+INFO	2025-03-11 10:51:54	MarkDuplicates	Tracking 640 as yet unmatched pairs. 640 records in RAM.
+INFO	2025-03-11 10:51:55	MarkDuplicates	Read     7,000,000 records.  Elapsed time: 00:00:11s.  Time for last 1,000,000:    1s.  Last read position: NC_010446.5:99,657,796
+INFO	2025-03-11 10:51:55	MarkDuplicates	Tracking 30 as yet unmatched pairs. 30 records in RAM.
+INFO	2025-03-11 10:51:57	MarkDuplicates	Read     8,000,000 records.  Elapsed time: 00:00:13s.  Time for last 1,000,000:    1s.  Last read position: NC_010447.5:22,048,444
+INFO	2025-03-11 10:51:57	MarkDuplicates	Tracking 235 as yet unmatched pairs. 235 records in RAM.
+INFO	2025-03-11 10:51:59	MarkDuplicates	Read     9,000,000 records.  Elapsed time: 00:00:14s.  Time for last 1,000,000:    1s.  Last read position: NC_010448.4:18,672,596
+INFO	2025-03-11 10:51:59	MarkDuplicates	Tracking 177 as yet unmatched pairs. 177 records in RAM.
+INFO	2025-03-11 10:52:00	MarkDuplicates	Read    10,000,000 records.  Elapsed time: 00:00:16s.  Time for last 1,000,000:    1s.  Last read position: NC_010448.4:55,326,608
+INFO	2025-03-11 10:52:00	MarkDuplicates	Tracking 5137 as yet unmatched pairs. 5137 records in RAM.
+INFO	2025-03-11 10:52:02	MarkDuplicates	Read    11,000,000 records.  Elapsed time: 00:00:18s.  Time for last 1,000,000:    1s.  Last read position: NC_010448.4:81,524,960
+INFO	2025-03-11 10:52:02	MarkDuplicates	Tracking 1284 as yet unmatched pairs. 1284 records in RAM.
+INFO	2025-03-11 10:52:04	MarkDuplicates	Read    12,000,000 records.  Elapsed time: 00:00:19s.  Time for last 1,000,000:    1s.  Last read position: NC_010449.5:22,890,869
+INFO	2025-03-11 10:52:04	MarkDuplicates	Tracking 7101 as yet unmatched pairs. 7101 records in RAM.
+INFO	2025-03-11 10:52:05	MarkDuplicates	Read    13,000,000 records.  Elapsed time: 00:00:21s.  Time for last 1,000,000:    1s.  Last read position: NC_010449.5:75,669,786
+INFO	2025-03-11 10:52:05	MarkDuplicates	Tracking 10214 as yet unmatched pairs. 10214 records in RAM.
+INFO	2025-03-11 10:52:07	MarkDuplicates	Read    14,000,000 records.  Elapsed time: 00:00:23s.  Time for last 1,000,000:    1s.  Last read position: NC_010450.4:47,657,632
+INFO	2025-03-11 10:52:07	MarkDuplicates	Tracking 56 as yet unmatched pairs. 56 records in RAM.
+INFO	2025-03-11 10:52:08	MarkDuplicates	Read    15,000,000 records.  Elapsed time: 00:00:24s.  Time for last 1,000,000:    1s.  Last read position: NC_010451.4:28,311,992
+INFO	2025-03-11 10:52:08	MarkDuplicates	Tracking 4 as yet unmatched pairs. 4 records in RAM.
+INFO	2025-03-11 10:52:10	MarkDuplicates	Read    16,000,000 records.  Elapsed time: 00:00:26s.  Time for last 1,000,000:    1s.  Last read position: NC_010452.4:23,753,434
+INFO	2025-03-11 10:52:10	MarkDuplicates	Tracking 5133 as yet unmatched pairs. 5133 records in RAM.
+INFO	2025-03-11 10:52:12	MarkDuplicates	Read    17,000,000 records.  Elapsed time: 00:00:27s.  Time for last 1,000,000:    1s.  Last read position: NC_010454.4:228,765
+INFO	2025-03-11 10:52:12	MarkDuplicates	Tracking 110 as yet unmatched pairs. 110 records in RAM.
+INFO	2025-03-11 10:52:13	MarkDuplicates	Read    18,000,000 records.  Elapsed time: 00:00:29s.  Time for last 1,000,000:    1s.  Last read position: NC_010454.4:47,117,606
+INFO	2025-03-11 10:52:13	MarkDuplicates	Tracking 20 as yet unmatched pairs. 20 records in RAM.
+INFO	2025-03-11 10:52:15	MarkDuplicates	Read    19,000,000 records.  Elapsed time: 00:00:31s.  Time for last 1,000,000:    1s.  Last read position: NC_010455.5:34,591,735
+INFO	2025-03-11 10:52:15	MarkDuplicates	Tracking 8122 as yet unmatched pairs. 8122 records in RAM.
+INFO	2025-03-11 10:52:17	MarkDuplicates	Read    20,000,000 records.  Elapsed time: 00:00:32s.  Time for last 1,000,000:    1s.  Last read position: NC_010456.5:6,685,673
+INFO	2025-03-11 10:52:17	MarkDuplicates	Tracking 110 as yet unmatched pairs. 110 records in RAM.
+INFO	2025-03-11 10:52:18	MarkDuplicates	Read    21,000,000 records.  Elapsed time: 00:00:34s.  Time for last 1,000,000:    1s.  Last read position: NC_010456.5:60,415,392
+INFO	2025-03-11 10:52:18	MarkDuplicates	Tracking 8007 as yet unmatched pairs. 8007 records in RAM.
+INFO	2025-03-11 10:52:20	MarkDuplicates	Read    22,000,000 records.  Elapsed time: 00:00:36s.  Time for last 1,000,000:    1s.  Last read position: NC_010457.5:47,782,468
+INFO	2025-03-11 10:52:20	MarkDuplicates	Tracking 13 as yet unmatched pairs. 13 records in RAM.
+INFO	2025-03-11 10:52:22	MarkDuplicates	Read    23,000,000 records.  Elapsed time: 00:00:37s.  Time for last 1,000,000:    1s.  Last read position: NC_010458.4:50,738,639
+INFO	2025-03-11 10:52:22	MarkDuplicates	Tracking 27 as yet unmatched pairs. 27 records in RAM.
+INFO	2025-03-11 10:52:23	MarkDuplicates	Read    24,000,000 records.  Elapsed time: 00:00:39s.  Time for last 1,000,000:    1s.  Last read position: NC_010460.4:10,346,078
+INFO	2025-03-11 10:52:23	MarkDuplicates	Tracking 30 as yet unmatched pairs. 30 records in RAM.
+INFO	2025-03-11 10:52:25	MarkDuplicates	Read    25,000,000 records.  Elapsed time: 00:00:41s.  Time for last 1,000,000:    1s.  Last read position: NC_010462.3:25,272,946
+INFO	2025-03-11 10:52:25	MarkDuplicates	Tracking 1213 as yet unmatched pairs. 1213 records in RAM.
+INFO	2025-03-11 10:52:26	MarkDuplicates	Read    26,000,000 records.  Elapsed time: 00:00:42s.  Time for last 1,000,000:    1s.  Last read position: NW_018085108.1:6,944
+INFO	2025-03-11 10:52:26	MarkDuplicates	Tracking 297 as yet unmatched pairs. 297 records in RAM.
+INFO	2025-03-11 10:52:28	MarkDuplicates	Read    27,000,000 records.  Elapsed time: 00:00:44s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:4,357
+INFO	2025-03-11 10:52:28	MarkDuplicates	Tracking 61179 as yet unmatched pairs. 61179 records in RAM.
+INFO	2025-03-11 10:52:29	MarkDuplicates	Read    28,000,000 records.  Elapsed time: 00:00:45s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:5,786
+INFO	2025-03-11 10:52:29	MarkDuplicates	Tracking 81761 as yet unmatched pairs. 81761 records in RAM.
+INFO	2025-03-11 10:52:31	MarkDuplicates	Read    29,000,000 records.  Elapsed time: 00:00:47s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:6,855
+INFO	2025-03-11 10:52:31	MarkDuplicates	Tracking 166714 as yet unmatched pairs. 166714 records in RAM.
+INFO	2025-03-11 10:52:33	MarkDuplicates	Read    30,000,000 records.  Elapsed time: 00:00:48s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:7,232
+INFO	2025-03-11 10:52:33	MarkDuplicates	Tracking 242259 as yet unmatched pairs. 242259 records in RAM.
+INFO	2025-03-11 10:52:34	MarkDuplicates	Read    31,000,000 records.  Elapsed time: 00:00:50s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:7,517
+INFO	2025-03-11 10:52:34	MarkDuplicates	Tracking 254479 as yet unmatched pairs. 254479 records in RAM.
+INFO	2025-03-11 10:52:36	MarkDuplicates	Read    32,000,000 records.  Elapsed time: 00:00:52s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:7,740
+INFO	2025-03-11 10:52:36	MarkDuplicates	Tracking 360283 as yet unmatched pairs. 360283 records in RAM.
+INFO	2025-03-11 10:52:37	MarkDuplicates	Read    33,000,000 records.  Elapsed time: 00:00:53s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:7,948
+INFO	2025-03-11 10:52:37	MarkDuplicates	Tracking 269617 as yet unmatched pairs. 269617 records in RAM.
+INFO	2025-03-11 10:52:39	MarkDuplicates	Read    34,000,000 records.  Elapsed time: 00:00:55s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:8,482
+INFO	2025-03-11 10:52:39	MarkDuplicates	Tracking 228984 as yet unmatched pairs. 228984 records in RAM.
+INFO	2025-03-11 10:52:41	MarkDuplicates	Read    35,000,000 records.  Elapsed time: 00:00:56s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:9,023
+INFO	2025-03-11 10:52:41	MarkDuplicates	Tracking 75923 as yet unmatched pairs. 75923 records in RAM.
+INFO	2025-03-11 10:52:42	MarkDuplicates	Read    36,000,000 records.  Elapsed time: 00:00:58s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:9,341
+INFO	2025-03-11 10:52:42	MarkDuplicates	Tracking 270414 as yet unmatched pairs. 270414 records in RAM.
+INFO	2025-03-11 10:52:44	MarkDuplicates	Read    37,000,000 records.  Elapsed time: 00:01:00s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:9,549
+INFO	2025-03-11 10:52:44	MarkDuplicates	Tracking 297905 as yet unmatched pairs. 297905 records in RAM.
+INFO	2025-03-11 10:52:46	MarkDuplicates	Read    38,000,000 records.  Elapsed time: 00:01:01s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:9,999
+INFO	2025-03-11 10:52:46	MarkDuplicates	Tracking 248123 as yet unmatched pairs. 248123 records in RAM.
+INFO	2025-03-11 10:52:47	MarkDuplicates	Read    39,000,000 records.  Elapsed time: 00:01:03s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:10,298
+INFO	2025-03-11 10:52:47	MarkDuplicates	Tracking 273231 as yet unmatched pairs. 273231 records in RAM.
+INFO	2025-03-11 10:52:49	MarkDuplicates	Read    40,000,000 records.  Elapsed time: 00:01:05s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:11,680
+INFO	2025-03-11 10:52:49	MarkDuplicates	Tracking 57561 as yet unmatched pairs. 57561 records in RAM.
+INFO	2025-03-11 10:52:50	MarkDuplicates	Read    41,000,000 records.  Elapsed time: 00:01:06s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:13,429
+INFO	2025-03-11 10:52:50	MarkDuplicates	Tracking 33553 as yet unmatched pairs. 33553 records in RAM.
+INFO	2025-03-11 10:52:52	MarkDuplicates	Read    42,000,000 records.  Elapsed time: 00:01:08s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:14,909
+INFO	2025-03-11 10:52:52	MarkDuplicates	Tracking 89495 as yet unmatched pairs. 89495 records in RAM.
+INFO	2025-03-11 10:52:54	MarkDuplicates	Read    43,000,000 records.  Elapsed time: 00:01:09s.  Time for last 1,000,000:    1s.  Last read position: NC_000845.1:16,052
+INFO	2025-03-11 10:52:54	MarkDuplicates	Tracking 102500 as yet unmatched pairs. 102500 records in RAM.
+INFO	2025-03-11 10:52:54	MarkDuplicates	Read 43433484 records. 0 pairs never matched.
+INFO	2025-03-11 10:52:55	MarkDuplicates	After buildSortedReadEndLists freeMemory: 5080595992; totalMemory: 12582912000; maxMemory: 32178700288
+INFO	2025-03-11 10:52:55	MarkDuplicates	Will retain up to 1005584384 duplicate indices before spilling to disk.
+INFO	2025-03-11 10:52:56	MarkDuplicates	Traversing read pair information and detecting duplicates.
+INFO	2025-03-11 10:52:58	OpticalDuplicateFinder	Large duplicate set. size = 1118
+INFO	2025-03-11 10:52:58	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:-23,913
+INFO	2025-03-11 10:52:58	OpticalDuplicateFinder	Large duplicate set. size = 1044
+INFO	2025-03-11 10:52:58	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:-27,457
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	Large duplicate set. size = 1053
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:29,210
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	Large duplicate set. size = 1333
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:6,843
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	Large duplicate set. size = 1731
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:-26,049
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	Large duplicate set. size = 1063
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:29,274
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	Large duplicate set. size = 1102
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:-27,595
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	Large duplicate set. size = 1210
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:21,328
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	Large duplicate set. size = 1201
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:-16,929
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	Large duplicate set. size = 1227
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:-28,566
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	Large duplicate set. size = 1580
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:-25,378
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	Large duplicate set. size = 1319
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:18,463
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	Large duplicate set. size = 1519
+INFO	2025-03-11 10:52:59	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:-30,233
+INFO	2025-03-11 10:53:00	OpticalDuplicateFinder	Large duplicate set. size = 1143
+INFO	2025-03-11 10:53:00	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:3,606
+INFO	2025-03-11 10:53:00	OpticalDuplicateFinder	Large duplicate set. size = 1216
+INFO	2025-03-11 10:53:00	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:29,533
+INFO	2025-03-11 10:53:00	OpticalDuplicateFinder	Large duplicate set. size = 1240
+INFO	2025-03-11 10:53:00	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:11,536
+INFO	2025-03-11 10:53:00	OpticalDuplicateFinder	Large duplicate set. size = 1031
+INFO	2025-03-11 10:53:00	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:30,496
+INFO	2025-03-11 10:53:01	MarkDuplicates	Traversing fragment information and detecting duplicates.
+INFO	2025-03-11 10:53:02	MarkDuplicates	Sorting list of duplicate records.
+INFO	2025-03-11 10:53:03	MarkDuplicates	After generateDuplicateIndexes freeMemory: 12572894920; totalMemory: 20631781376; maxMemory: 32178700288
+INFO	2025-03-11 10:53:03	MarkDuplicates	Marking 23906058 records as duplicates.
+INFO	2025-03-11 10:53:03	MarkDuplicates	Found 1324414 optical duplicate clusters.
+INFO	2025-03-11 10:53:03	MarkDuplicates	Reads are assumed to be ordered by: coordinate
+INFO	2025-03-11 10:53:31	MarkDuplicates	Written    10,000,000 records.  Elapsed time: 00:00:28s.  Time for last 10,000,000:   28s.  Last read position: NC_010452.4:8,166,367
+INFO	2025-03-11 10:54:07	MarkDuplicates	Writing complete. Closing input iterator.
+INFO	2025-03-11 10:54:07	MarkDuplicates	Duplicate Index cleanup.
+INFO	2025-03-11 10:54:07	MarkDuplicates	Getting Memory Stats.
+INFO	2025-03-11 10:54:07	MarkDuplicates	Before output close freeMemory: 299777392; totalMemory: 310378496; maxMemory: 32178700288
+INFO	2025-03-11 10:54:07	MarkDuplicates	Closed outputs. Getting more Memory Stats.
+INFO	2025-03-11 10:54:07	MarkDuplicates	After output close freeMemory: 103486320; totalMemory: 113246208; maxMemory: 32178700288
+[Tue Mar 11 10:54:07 PDT 2025] picard.sam.markduplicates.MarkDuplicates done. Elapsed time: 2.40 minutes.
+Runtime.totalMemory()=113246208
+100000 GFF lines processed.
+200000 GFF lines processed.
+300000 GFF lines processed.
+400000 GFF lines processed.
+500000 GFF lines processed.
+600000 GFF lines processed.
+700000 GFF lines processed.
+800000 GFF lines processed.
+900000 GFF lines processed.
+1000000 GFF lines processed.
+1100000 GFF lines processed.
+1200000 GFF lines processed.
+1300000 GFF lines processed.
+1400000 GFF lines processed.
+1500000 GFF lines processed.
+1600000 GFF lines processed.
+1700000 GFF lines processed.
+1800000 GFF lines processed.
+1900000 GFF lines processed.
+2000000 GFF lines processed.
+2009927 GFF lines processed.
+100000 alignment record pairs processed.
+200000 alignment record pairs processed.
+300000 alignment record pairs processed.
+400000 alignment record pairs processed.
+500000 alignment record pairs processed.
+600000 alignment record pairs processed.
+700000 alignment record pairs processed.
+800000 alignment record pairs processed.
+900000 alignment record pairs processed.
+1000000 alignment record pairs processed.
+1100000 alignment record pairs processed.
+1200000 alignment record pairs processed.
+1300000 alignment record pairs processed.
+1400000 alignment record pairs processed.
+1500000 alignment record pairs processed.
+1600000 alignment record pairs processed.
+1700000 alignment record pairs processed.
+1800000 alignment record pairs processed.
+1900000 alignment record pairs processed.
+2000000 alignment record pairs processed.
+2100000 alignment record pairs processed.
+2200000 alignment record pairs processed.
+2300000 alignment record pairs processed.
+2400000 alignment record pairs processed.
+2500000 alignment record pairs processed.
+2600000 alignment record pairs processed.
+2700000 alignment record pairs processed.
+2800000 alignment record pairs processed.
+2900000 alignment record pairs processed.
+3000000 alignment record pairs processed.
+3100000 alignment record pairs processed.
+3200000 alignment record pairs processed.
+3300000 alignment record pairs processed.
+3400000 alignment record pairs processed.
+3500000 alignment record pairs processed.
+3600000 alignment record pairs processed.
+3700000 alignment record pairs processed.
+3800000 alignment record pairs processed.
+3900000 alignment record pairs processed.
+4000000 alignment record pairs processed.
+4100000 alignment record pairs processed.
+4200000 alignment record pairs processed.
+4300000 alignment record pairs processed.
+4400000 alignment record pairs processed.
+4500000 alignment record pairs processed.
+4600000 alignment record pairs processed.
+4700000 alignment record pairs processed.
+4800000 alignment record pairs processed.
+4900000 alignment record pairs processed.
+5000000 alignment record pairs processed.
+5100000 alignment record pairs processed.
+5200000 alignment record pairs processed.
+5300000 alignment record pairs processed.
+5400000 alignment record pairs processed.
+5500000 alignment record pairs processed.
+5600000 alignment record pairs processed.
+5700000 alignment record pairs processed.
+5800000 alignment record pairs processed.
+5900000 alignment record pairs processed.
+6000000 alignment record pairs processed.
+6100000 alignment record pairs processed.
+6200000 alignment record pairs processed.
+6300000 alignment record pairs processed.
+6400000 alignment record pairs processed.
+6500000 alignment record pairs processed.
+6600000 alignment record pairs processed.
+6700000 alignment record pairs processed.
+6800000 alignment record pairs processed.
+6900000 alignment record pairs processed.
+7000000 alignment record pairs processed.
+7100000 alignment record pairs processed.
+7200000 alignment record pairs processed.
+7300000 alignment record pairs processed.
+7400000 alignment record pairs processed.
+7500000 alignment record pairs processed.
+7600000 alignment record pairs processed.
+7700000 alignment record pairs processed.
+7800000 alignment record pairs processed.
+7900000 alignment record pairs processed.
+8000000 alignment record pairs processed.
+8100000 alignment record pairs processed.
+8200000 alignment record pairs processed.
+8300000 alignment record pairs processed.
+8400000 alignment record pairs processed.
+8500000 alignment record pairs processed.
+8600000 alignment record pairs processed.
+8700000 alignment record pairs processed.
+8800000 alignment record pairs processed.
+8900000 alignment record pairs processed.
+8913643 alignment record pairs processed.

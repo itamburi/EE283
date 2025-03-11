@@ -1,14 +1,17 @@
 #!/bin/sh
 #SBATCH -A mseldin_lab
-#SBATCH --job-name=test    # Job name                  
-#SBATCH --cpus-per-task 32
-#SBATCH --array=1-10
-#SBATCH --mem=3gb
+#SBATCH --job-name=STAR    # Job name                  
+#SBATCH --cpus-per-task 16
+#SBATCH --array=1-16
+#SBATCH --mem-per-cpu=8G
 #SBATCH --constraint=nvme
-#SBATCH --output=/dfs6/pub/itamburi/star/test8/slurm/ldl-%J.log   # Output and error log 
+#SBATCH --output=/dfs6/pub/itamburi/ee283/week10/log/%x_%j.out   # log based on jobname
+#SBATCH --error=/dfs6/pub/itamburi/ee283/week10/log/%x_%j.err    # error based on jobname
 
+# We will array for only the Heart tissue samples by setting up the prefix file to only have heart
 # source my conda software location
-source /data/homezvol0/itamburi/.bashrc
+source /opt/apps/miniconda3/24.9.2/etc/profile.d/conda.sh
+
 # activate conda enviornment with htseq
 conda activate htseq
 
@@ -19,17 +22,19 @@ module load picard-tools/2.27.1
 
 # set up enviornment variables
 dir="/dfs6/pub/itamburi/ee283/week10"
-prefix=`cat ${dir}/prefixes.txt | head -n $SLURM_ARRAY_TASK_ID | tail -n 1`
-reads=$(printf '%s ' ${dir}/datalinks/${prefix}_[12].fq.gz)
+prefix=`cat ${dir}/prefixes_heart.txt | head -n $SLURM_ARRAY_TASK_ID | tail -n 1`
+reads=$(printf '%s ' ${dir}/datalinks/${prefix}_[12])
+
 
 cd ${TMPDIR}
-STAR --genomeDir ${dir}/genome \
-        --readFilesIn ${reads} \
+
+STAR --genomeDir ${dir}/genomeidx \
+	--readFilesIn ${reads} \
         --outSAMtype BAM Unsorted \
         --readFilesCommand zcat \
         --outFileNamePrefix ${prefix}_ \
         --outTmpDir ${TMPDIR}/${SLURM_ARRAY_TASK_ID} \
-        --runThreadN 10 \
+        --runThreadN 10
 
 # Aligned.out.bam is the output from STAR based on outSAMtype
 samtools sort ${prefix}_Aligned.out.bam -o ${TMPDIR}/${prefix}_sorted.bam
@@ -46,12 +51,13 @@ picard MarkDuplicates \
     -REMOVE_DUPLICATES true
 
 
-ref='/dfs6/pub/itamburi/ee283/week10/genome.ncbi/genomic.gtf'
+ref="/dfs6/pub/itamburi/ee283/week10/susscrofa_ncbi/GCF_000003025.6/genomic.gtf"
+
 
 htseq-count -f bam -r pos -i gene_id --stranded=no \
-        ${TMPDIR}/${sample}_dd.bam \
+        ${TMPDIR}/${prefix}_dd.bam \
         ${ref} \
-> ${sample}_counts.txt
+> ${prefix}_counts.txt
 
 
 # move files back to CRSP
@@ -93,9 +99,9 @@ fi
 mv ${prefix}_counts.txt $dir1
 
 mv ${prefix}_Log.out ${prefix}_Log.final.out ${prefix}_Log.progress.out $dir2
-#mv ${sample}_Aligned.out.bam $dir2
+#mv ${prefix}_Aligned.out.bam $dir2
 
 mv ${prefix}_SJ.out.tab $dir3
 
 mv ${prefix}_mrkdp_met.txt $dir4
-#mv ${TMPDIR}/${sample}_dd.bam $dir4
+#mv ${TMPDIR}/${prefix}_dd.bam $dir4

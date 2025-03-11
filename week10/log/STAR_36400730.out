@@ -1,0 +1,11 @@
+	STAR --genomeDir /dfs6/pub/itamburi/ee283/week10/genomeidx --readFilesIn /dfs6/pub/itamburi/ee283/week10/datalinks/n83_1 /dfs6/pub/itamburi/ee283/week10/datalinks/n83_2 --outSAMtype BAM Unsorted --readFilesCommand zcat --outFileNamePrefix n83_ --outTmpDir /tmp/itamburi/36400730/15 --runThreadN 10
+	STAR version: 2.7.10a_alpha_220314   compiled: 2024-12-16T09:50:18-08:00 admixdev-8-10-p:/export/repositories/biotools-admix/BUILD/star_2.7.10a-2.7.10a/STAR-2.7.10a_alpha_220314/source
+Mar 11 10:40:15 ..... started STAR run
+Mar 11 10:40:15 ..... loading genome
+Mar 11 10:40:25 ..... started mapping
+Mar 11 10:44:39 ..... finished mapping
+Mar 11 10:44:39 ..... finished successfully
+Directory already exists: /dfs6/pub/itamburi/ee283/week10/counts
+Directory already exists: /dfs6/pub/itamburi/ee283/week10/starout
+Directory already exists: /dfs6/pub/itamburi/ee283/week10/sj
+Directory already exists: /dfs6/pub/itamburi/ee283/week10/mrkdupes
